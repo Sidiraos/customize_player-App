@@ -4,6 +4,7 @@ const mutedBtn = document.querySelector('img[alt="mute"]');
 const progressBar = document.querySelector('input[name="currentTime"]');
 const duration = document.querySelector('#totalDuration');
 const currentTime = document.querySelector('label[for="currentTime"]');
+const fullScreenBtn = document.querySelector('img[alt="fullscreen"]');
 
 btnPlay.addEventListener('click',playPauseVideo);
 mutedBtn.addEventListener('click',muteVideo);
@@ -79,5 +80,18 @@ function stopVideo(){
     }
 }
 
+fullScreenBtn.addEventListener('click', toggleFullScreen);
+
+function toggleFullScreen() {
+    if(myVideo.requestFullscreen){
+        myVideo.requestFullscreen();
+    }else if(myVideo.mozRequestFullScreen){
+        myVideo.requestFullscreen();
+    }else if(myVideo.webkitSupportsFullScreen){
+        myVideo.requestFullscreen();
+    }else if(myVideo.msRequestFullscreen){
+        myVideo.requestFullscreen();
+    }
+}
 
 
