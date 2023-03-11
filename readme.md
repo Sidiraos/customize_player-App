@@ -16,4 +16,11 @@
 <li>sync current Time when video played and paused</li>
 <li>Add progress bar sync with current Time</li>
 
+<ul><b>V1.4</b></ul>
+<li>add js feautures</li>
+<li>add event progress bar input type=range</li>
+<li>when change value progress bar video change currentTime</li>
+<li>when video ended all is renitialised</li>
+<li>label current time sync with changing progress bar</li>
+
 

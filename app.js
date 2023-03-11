@@ -40,7 +40,7 @@ function playPauseVideo() {
             let currentTimeInMinute = convertSecondInMinutes(myVideo.currentTime);
             currentTime.textContent = currentTimeInMinute;
             progressBar.value = myVideo.currentTime;
-            
+            stopVideo();
         }
 
     }else {
@@ -60,5 +60,24 @@ function muteVideo() {
         mutedBtn.src = "ressources/mute.svg";
     }
 }
+
+progressBar.addEventListener('input', handleChange);
+
+function handleChange(e){
+    myVideo.currentTime = parseInt(e.target.value);
+    currentTime.textContent = convertSecondInMinutes(myVideo.currentTime);
+}
+
+function stopVideo(){
+    if(myVideo.ended){
+        console.log('video ended');
+        clearInterval(synCurrentTime);
+        btnPlay.src = "ressources/play.svg";
+        myVideo.currentTime = 0;
+        progressBar.value = 0;
+        currentTime.textContent = "00:00";
+    }
+}
+
 
 
