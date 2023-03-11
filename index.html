@@ -15,18 +15,18 @@
     <div class="container text-center">
         <div><h1><span class="fw-bold">Lecteur</span> personnalisé</h1></div>
         <div class="player mt-5 mx-auto">
-                <video>
+                <video id="myVideo">
                     <source src="ressources/video.mp4" type="video/mp4">
                 </video>
                 <div class="control">
-                    <img src="ressources/play.svg" alt="play">
+                    <img src="ressources/play.svg" alt="play" type="button">
                     <div class="volume-display">
-                        <label for="rangeVolume"><img src="ressources/unmute.svg" alt="unmute"></label>
-                        <input type="range" name="" id="rangeVolume">
-                        <span class="text-light">0:00 3:46</span>
+                        <img src="ressources/unmute.svg" alt="mute" type="button">
+                        <input type="range" name="currentTime" id="currentTime" min="0" max="100" value="0">
+                        <label for="currentTime" class="text-light">0:00</label> <span class="text-light ms-3" id="totalDuration">0:00</span>
                     </div>
 
-                    <img src="ressources/fullscreen.svg" alt="fullscreen">
+                    <img src="ressources/fullscreen.svg" alt="fullscreen" type="button">
                 </div>
         </div>
     </div>
