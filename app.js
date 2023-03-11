@@ -1,14 +1,16 @@
 const btnPlay = document.querySelector('img[alt="play"]');
 const myVideo = document.getElementById('myVideo');
 const mutedBtn = document.querySelector('img[alt="mute"]');
-const inputDuration = document.querySelector('input[name="currentTime"]');
+const progressBar = document.querySelector('input[name="currentTime"]');
 const duration = document.querySelector('#totalDuration');
+const currentTime = document.querySelector('label[for="currentTime"]');
 
 btnPlay.addEventListener('click',playPauseVideo);
 mutedBtn.addEventListener('click',muteVideo);
 
 myVideo.addEventListener('loadedmetadata', function() {
     showDuration();
+    progressBar.max = myVideo.duration;
 });
 
 function showDuration(){
@@ -25,16 +27,27 @@ function convertSecondInMinutes(durationSecond){
     return durationMinute + ":" + remainingSecond;
 }
 
+let synCurrentTime;
 function playPauseVideo() {
     if(myVideo.paused){
         console.log('video played');
         myVideo.play();
         btnPlay.src = "ressources/pause.svg";
+        synCurrentTime = setInterval(updateTime, 1000);
+
+        function updateTime() {
+            console.log(myVideo.currentTime);
+            let currentTimeInMinute = convertSecondInMinutes(myVideo.currentTime);
+            currentTime.textContent = currentTimeInMinute;
+            progressBar.value = myVideo.currentTime;
+            
+        }
 
     }else {
         myVideo.pause();
         btnPlay.src = "ressources/play.svg";
         console.log('video paused');
+        clearInterval(synCurrentTime);
     }
 }
 
@@ -47,9 +60,5 @@ function muteVideo() {
         mutedBtn.src = "ressources/mute.svg";
     }
 }
-
-
-
-// inputDuration.addEventListener('change',handleDurationChange)
 
 
