@@ -19,18 +19,30 @@
                     <source src="ressources/video.mp4" type="video/mp4">
                 </video>
                 <div class="control">
-                    <img src="ressources/play.svg" alt="play" type="button">
-                    <div class="volume-display">
-                        <img src="ressources/unmute.svg" alt="mute" type="button">
-                        <input type="range" name="currentTime" id="currentTime" min="0" max="100" value="0">
-                        <label for="currentTime" class="text-light">0:00</label> <span class="text-light ms-3" id="totalDuration">0:00</span>
+                    <div class="iconBtn play">
+                        <img src="ressources/play.svg" alt="play" type="button">
                     </div>
+                    <div class="volume-display">
+                        <div class="volumeBarGroup">
+                            <div class="iconBtn mute">
+                                    <img src="ressources/unmute.svg" alt="mute" type="button" id="volume-icon">
+                            </div>
+                        </div>
 
-                    <img src="ressources/fullscreen.svg" alt="fullscreen" type="button">
+                        <div class="input-group">
+                            <input type="range" name="currentTime" id="currentTime" min="0" max="100" value="0">
+                            <label for="currentTime" class="text-light">0:00</label> <span class="text-light ms-3" id="totalDuration">0:00</span>
+                        </div>
+                        
+                    </div>
+                    <div class="iconBtn fullscreen">
+                        <img src="ressources/fullscreen.svg" alt="fullscreen" type="button">
+                    </div>
                 </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
 </html>

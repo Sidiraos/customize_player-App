@@ -38,24 +38,59 @@ video {
   justify-content: space-between;
 }
 
-img {
-  width: 20px;
+.iconBtn {
+  min-width: 10px;
+  max-width: 20px;
 }
-img[alt = "play"]{
+.play{
   margin-left: 12px;
-  margin-right: 50px;
-}
-img[alt = "mute"]{
- margin-right:12px; 
-}
-img[alt = "fullscreen"]{
   margin-right: 12px;
 }
+.volumeBarGroup{
+ margin-right:12px; 
+ position: relative;
+}
+.fullscreen{
+  margin-right: 12px;
+}
+img {
+  width: 100%;
+}
+
 input[type="range"]{
   margin-right: 12px;
+  width: 35%;
+}
+#totalDuration , label {
+  font-size: clamp(8px , 5vw , 16px);
 }
 .volume-display {
   display: flex;
   align-items: center;
   flex-basis: 100%;
+  margin-right: 12px;
 }
+
+#volume-tooltip {
+  display: none;
+  position: absolute;
+  top: -108px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: gray;
+  opacity: 0.8;
+  border-radius: 5px 5px 0 0 ;
+}
+
+#volume-tooltip .volume-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  background-color: #225bcd80;
+  border-radius: 5px 5px 0 0;
+}
+
+

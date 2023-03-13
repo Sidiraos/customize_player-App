@@ -36,5 +36,19 @@
     <li>add fullscreen mode</li>
 </ul>
 
+<ul>
+    <b>V1.6</b>
+    <li>fixed css bug button responsive add mr 3% play btn</li>
+</ul>
+
+<ul>
+    <b>V1.7</b>
+    <li>add mouse event</li>
+    <li>add volume control feature customised</li>
+    <li>add div in html content icon</li>
+    <li>add responsive style button</li>
+</ul>
+
+
 
 
