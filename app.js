@@ -56,12 +56,12 @@ function muteVideo() {
     if(myVideo.muted){
         myVideo.muted = false;
         mutedBtn.src = "ressources/unmute.svg";
-        volumeBar.style.height = myVideo.volume*100 + "%";
+        volumeBar.style.width = myVideo.volume*100 + "%";
 
     }else {
         myVideo.muted = true;
         mutedBtn.src = "ressources/mute.svg";
-        volumeBar.style.height = '0';
+        volumeBar.style.width = '0';
 
     }
 }
@@ -106,40 +106,36 @@ volumeBar.className = "volume-bar";
 volumeTooltip.appendChild(volumeBar);
 document.querySelector(".volumeBarGroup").appendChild(volumeTooltip);
 
-volumeIcon.addEventListener("mouseover" , (e)=> {
-    volumeTooltip.style.display = "block";
-    setTimeout(()=> volumeTooltip.style.display = "none" , 4000)
-
-});
 
 // Ajout de l'événement mousemove à la barre de contrôle du volume
 volumeTooltip.addEventListener("mousemove", handleVolumeChange);
 
-let volumeBarHeight;
+let volumeBarValue;
   function handleVolumeChange(e) {
         let volumeLevel;
         // Récupération de la hauteur de la barre de contrôle du volume
         // Récupération de la position verticale de la souris dans la barre de contrôle du volume
         let volumeBarRect = volumeBar.getBoundingClientRect();
-        let mousePositionY = Math.floor(e.clientY - volumeBarRect.top) + 1;
+        // let mousePositionY = Math.floor(e.clientY - volumeBarRect.top) + 1;
         let mousePositionX = Math.floor(e.clientX - volumeBarRect.left) + 1;
         console.log(mousePositionX)
-        volumeBarHeight = mousePositionY;
-        if(mousePositionY < 0) {
-            volumeBarHeight = 0
-        } else volumeBarHeight = mousePositionY;
-        if(mousePositionY > volumeBarHeight) {
-            volumeBarHeight = 100;
-        }
-        console.log("mousePositionY" , mousePositionY)
-        volumeBar.style.height = volumeBarHeight + "%";
+        volumeBarValue = mousePositionX;
+        if(mousePositionX < 0) {
+            volumeBarValue = 0
+        } else volumeBarValue = mousePositionX;
+        console.log(e.clientX , volumeBarRect.right)
+        // if(mousePositionX > volumeBarValue && e.clientX > volumeBarRect.right) {
+        //     volumeBarValue = 100;
+        // }
+        console.log("mousePositionX" , mousePositionX)
+        // change style volumeBar
+        volumeBar.style.width = volumeBarValue + "%";
 
-        if(mousePositionX < 0) volumeTooltip.style.display = "none";
         // Calcul du niveau de volume en fonction de la position de la souris
-        if (!volumeBarHeight) {
+        if (!volumeBarValue) {
             volumeLevel = 0
         } else {
-            volumeLevel = volumeBarHeight.toFixed(2);
+            volumeLevel = volumeBarValue.toFixed(2);
         }
         console.log("volumeLevel", volumeLevel)
         // Mise à jour du niveau de volume
@@ -152,4 +148,8 @@ let volumeBarHeight;
     volumeLevel == 0 ? mutedBtn.src = "ressources/mute.svg" : mutedBtn.src = "ressources/unmute.svg" ;
 }
 
-
+myVideo.addEventListener('dblclick', dblclickHandler);
+myVideo.addEventListener('click' , playPauseVideo)
+function dblclickHandler(e){
+    toggleFullScreen()
+}

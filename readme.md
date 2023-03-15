@@ -43,10 +43,19 @@
 
 <ul>
     <b>V1.7</b>
-    <li>add mouse event</li>
+    <li>add mouse event on volumeBar onmouse : height</li>
     <li>add volume control feature customised</li>
     <li>add div in html content icon</li>
     <li>add responsive style button</li>
+</ul>
+
+<ul>
+    <b>V1.8</b>
+    <li>progress Bar on the top width 100%</li>
+    <li>add volume horizontal position</li>
+    <li>change mousePositionY to mousePositionX</li>
+    <li>on mouse width on VolumeBar</li>
+    <li>deleted event VolumeIcon mouseover</li>
 </ul>
 
 

@@ -15,10 +15,11 @@
     <div class="container text-center">
         <div><h1><span class="fw-bold">Lecteur</span> personnalisé</h1></div>
         <div class="player mt-5 mx-auto">
-                <video id="myVideo">
+                <video id="myVideo" preload="metadata">
                     <source src="ressources/video.mp4" type="video/mp4">
                 </video>
                 <div class="control">
+                    <input type="range" name="currentTime" id="currentTime" min="0" max="100" value="0">
                     <div class="iconBtn play">
                         <img src="ressources/play.svg" alt="play" type="button">
                     </div>
@@ -30,8 +31,9 @@
                         </div>
 
                         <div class="input-group">
-                            <input type="range" name="currentTime" id="currentTime" min="0" max="100" value="0">
-                            <label for="currentTime" class="text-light">0:00</label> <span class="text-light ms-3" id="totalDuration">0:00</span>
+                            <label for="currentTime" class="text-light">0:00</label>
+                            <span class="text-light ms-3">/</span>
+                            <span class="text-light ms-3" id="totalDuration">0:00</span>
                         </div>
                         
                     </div>
