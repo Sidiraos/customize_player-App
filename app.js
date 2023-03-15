@@ -91,7 +91,7 @@ function toggleFullScreen() {
         myVideo.requestFullscreen();
     }else if(myVideo.mozRequestFullScreen){
         myVideo.requestFullscreen();
-    }else if(myVideo.webkitSupportsFullScreen){
+    }else if(myVideo.webkitRequestFullscreen){
         myVideo.requestFullscreen();
     }else if(myVideo.msRequestFullscreen){
         myVideo.requestFullscreen();
@@ -116,27 +116,19 @@ let volumeBarValue;
         // Récupération de la hauteur de la barre de contrôle du volume
         // Récupération de la position verticale de la souris dans la barre de contrôle du volume
         let volumeBarRect = volumeBar.getBoundingClientRect();
+        let volumeTooltipRect = volumeTooltip.getBoundingClientRect();
         // let mousePositionY = Math.floor(e.clientY - volumeBarRect.top) + 1;
-        let mousePositionX = Math.floor(e.clientX - volumeBarRect.left) + 1;
+        let mousePositionX = Math.floor(e.clientX - volumeTooltipRect.left) + 1;
         console.log(mousePositionX)
         volumeBarValue = mousePositionX;
-        if(mousePositionX < 0) {
-            volumeBarValue = 0
-        } else volumeBarValue = mousePositionX;
-        console.log(e.clientX , volumeBarRect.right)
-        // if(mousePositionX > volumeBarValue && e.clientX > volumeBarRect.right) {
-        //     volumeBarValue = 100;
-        // }
+        mousePositionX < 0 ? volumeBarValue = 0 : volumeBarValue = mousePositionX;
+        console.log(e.clientX +1 , volumeTooltip.getBoundingClientRect().right)
+        if(e.clientX +1 >= Math.floor(volumeTooltipRect.right)) volumeBarValue = 100;
         console.log("mousePositionX" , mousePositionX)
         // change style volumeBar
         volumeBar.style.width = volumeBarValue + "%";
-
         // Calcul du niveau de volume en fonction de la position de la souris
-        if (!volumeBarValue) {
-            volumeLevel = 0
-        } else {
-            volumeLevel = volumeBarValue.toFixed(2);
-        }
+        !volumeBarValue ? volumeLevel = 0 : volumeLevel = volumeBarValue.toFixed(2);
         console.log("volumeLevel", volumeLevel)
         // Mise à jour du niveau de volume
         setVolume(volumeLevel);

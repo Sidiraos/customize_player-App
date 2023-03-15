@@ -58,6 +58,11 @@
     <li>deleted event VolumeIcon mouseover</li>
 </ul>
 
+<ul>
+    <b>V1.9</b>
+    <li>fixed bug on control volume bar</li>
+</ul>
+
 
 
 

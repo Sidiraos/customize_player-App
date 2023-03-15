@@ -10,6 +10,7 @@ body {
   font-family: Montserrat, sans-serif;
   background: #d1d1d1;
   padding-top: 50px;
+  user-select: none;
 }
 h1 {
   font-family: 'montserrat', sans-serif;
@@ -37,10 +38,11 @@ video {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: auto;
 }
 
 .iconBtn {
-  min-width: 10px;
+  min-width: 12px;
   max-width: 20px;
 }
 .play{
@@ -62,10 +64,11 @@ input[type="range"]{
   margin-right: 12px;
   width: 100%;
   position: absolute;
-  top: -12px;
+  top: -3px;
+  height: 4px;
 }
 
-#totalDuration , label {
+.input-group {
   font-size: clamp(8px , 5vw , 16px);
 }
 .volume-display {
@@ -82,7 +85,7 @@ input[type="range"]{
 #volume-tooltip {
   display: block;
   position: relative;
-  width: 100px;
+  width: 101px;
   height: 24px;
   margin-left: 12px;
   background-color: gray;
@@ -96,4 +99,8 @@ input[type="range"]{
   background-color: #f22606a1;
 }
 
-
+@media screen and (max-width : 354px) {
+  #volume-tooltip {
+    width: 50px;
+  }
+}
